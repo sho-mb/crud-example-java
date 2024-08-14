@@ -43,5 +43,4 @@ public class TweetController {
     Tweet sevedTweet = tweetService.compose(tweet);
     return ResponseEntity.ok(sevedTweet);
   }
-
 }
