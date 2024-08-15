@@ -1,6 +1,6 @@
 package com.example.crud.service.impl;
 
-import java.util.concurrent.CompletionService;
+import java.util.List;
 
 import org.springframework.stereotype.Service;
 
@@ -23,5 +23,20 @@ public class TweetServiceImpl implements TweetService {
   public Tweet compose(Tweet tweet) {
     return tweetRepository.save(tweet);
   }
+
+  @Override
+  public List<Tweet> getAllTweet() {
+    return tweetRepository.findAll();
+  }
+
+  @Override
+  public List<Tweet> getTweetsForTimeLine(List<Long> userIds) {
+    return tweetRepository.findByAccountIdInOrderByPostedAtDesc(userIds);
+  }
+
+  // @Override
+  // public List<Tweet> getTweetsForTimeLine(List<Long> userIds, Pageable pageable) {
+  //   return tweetRepository.findByAccountIds(userIds, pageable);
+  // }
 
 }
