@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import org.springframework.data.domain.Limit;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,6 +21,7 @@ import com.example.crud.model.entity.Tweet;
 import com.example.crud.service.AccountService;
 import com.example.crud.service.TweetService;
 
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 
 @RestController()
@@ -29,11 +31,6 @@ public class TweetController {
 
   private final TweetService tweetService;
   private final AccountService accountService;
-
-  // @GetMapping()
-  // public List<Tweet> getTweets() {
-  //   return tweetService.getAllTweet();
-  // }
 
   @GetMapping("timeline")
   public List<Tweet> getTimeline(
@@ -58,5 +55,18 @@ public class TweetController {
     tweet.setAccount(account);
     Tweet sevedTweet = tweetService.compose(tweet);
     return ResponseEntity.ok(sevedTweet);
+  }
+
+  @DeleteMapping("/{id}")
+  public ResponseEntity<String> deleteTweet(
+    @PathVariable(name = "id") Long id
+  ) throws BadRequestException {
+    boolean isDeleted = tweetService.deleteTweet(id);
+    
+    if (isDeleted) {
+      return ResponseEntity.ok("Item deleted successfully");
+    } else {
+      return ResponseEntity.status(400).body("Item not found");
+    }
   }
 }

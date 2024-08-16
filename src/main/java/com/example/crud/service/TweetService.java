@@ -2,7 +2,7 @@ package com.example.crud.service;
 
 import java.util.List;
 
-import org.springframework.data.domain.Limit;
+import org.apache.coyote.BadRequestException;
 
 import com.example.crud.model.entity.Tweet;
 
@@ -13,5 +13,5 @@ public interface TweetService {
 
   List<Tweet> getTweetsForTimeLine(List<Long> userId);
 
-  // List<Tweet> getTweetsForTimeLine(List<Long> userIds, Pageable pageable);
+  boolean deleteTweet(Long id) throws BadRequestException;
 }
