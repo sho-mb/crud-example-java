@@ -2,7 +2,6 @@ package com.example.crud.model.entity;
 
 import java.util.Date;
 
-import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
 
 import jakarta.persistence.Column;

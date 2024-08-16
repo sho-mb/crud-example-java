@@ -4,7 +4,6 @@ import org.apache.coyote.BadRequestException;
 import java.util.List;
 import java.util.ArrayList;
 
-import org.springframework.data.domain.Limit;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,7 +20,6 @@ import com.example.crud.model.entity.Tweet;
 import com.example.crud.service.AccountService;
 import com.example.crud.service.TweetService;
 
-import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 
 @RestController()

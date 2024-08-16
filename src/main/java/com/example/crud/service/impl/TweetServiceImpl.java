@@ -4,9 +4,6 @@ import java.util.List;
 import java.util.Optional;
 
 import org.apache.coyote.BadRequestException;
-import org.apache.tomcat.util.net.jsse.PEMFile;
-import org.springframework.boot.autoconfigure.integration.IntegrationProperties.Error;
-import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import com.example.crud.dao.TweetRepository;
