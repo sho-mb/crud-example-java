@@ -50,4 +50,14 @@ public class TweetServiceImpl implements TweetService {
         throw new BadRequestException("Invalid id: " + id, e);
     }
   }
+
+  @Override
+  public Tweet getTweetById(long tweetId) throws BadRequestException {
+    try {
+      Optional<Tweet> optTweet = tweetRepository.findById(tweetId);
+      return optTweet.get();
+    } catch (IllegalArgumentException e) {
+        throw new BadRequestException("Invalid id: " + tweetId, e);
+    }
+  }
 }

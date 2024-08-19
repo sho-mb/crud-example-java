@@ -14,4 +14,6 @@ public interface TweetService {
   List<Tweet> getTweetsForTimeLine(List<Long> userId);
 
   boolean deleteTweet(Long id) throws BadRequestException;
+
+  Tweet getTweetById(long tweetId) throws BadRequestException;
 }

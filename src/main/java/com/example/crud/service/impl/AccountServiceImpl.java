@@ -33,4 +33,14 @@ public class AccountServiceImpl implements AccountService {
       return optAccount.orElseThrow(() -> new BadRequestException("Account not found"));
     }
   }
+
+  @Override
+  public Account getAccountByUserId(String userId) throws BadRequestException {
+    Optional<Account> optAccount = accountRepository.findByUserId(userId);
+    if (optAccount.isPresent()) {
+      return optAccount.get();
+    } else {
+      return optAccount.orElseThrow(() -> new BadRequestException("Account not found"));
+    }
+  }
 }

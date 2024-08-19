@@ -30,7 +30,7 @@ public class TweetController {
   private final TweetService tweetService;
   private final AccountService accountService;
 
-  @GetMapping("timeline")
+  @GetMapping("/timeline")
   public List<Tweet> getTimeline(
       @RequestParam Long userId
   ) {

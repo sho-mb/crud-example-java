@@ -8,4 +8,6 @@ public interface AccountService {
   Account register(Account account);
 
   Account getAccountById(Long id) throws BadRequestException;
+
+  Account getAccountByUserId(String userId) throws BadRequestException;
 }
