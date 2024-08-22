@@ -1,5 +1,8 @@
 package com.example.crud.model.entity;
 
+import org.hibernate.annotations.CreationTimestamp;
+import java.util.Date;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -26,11 +29,15 @@ public class Reply {
   @Column
   private String discription;
 
+  // @CreationTimestamp
+  // @Column(nullable = false)
+  // private Date createdAt;
+
   @ManyToOne
   @JoinColumn(name = "tweet_id")
   private Tweet tweet;
 
   @JoinColumn(name = "account_id")
   @ManyToOne
-  private Account accountId;
+  private Account account;
 }

@@ -3,9 +3,7 @@ package com.example.crud.form;
 import com.example.crud.model.entity.Reply;
 
 public record ReplyCreateForm(
-  String userId,
-  String discription,
-  long tweetId
+  String discription
 ) {
   public Reply toReply() {
     Reply reply = Reply.builder()

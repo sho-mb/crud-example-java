@@ -30,6 +30,13 @@ public class TweetController {
   private final TweetService tweetService;
   private final AccountService accountService;
 
+  @GetMapping("/{id}")
+  public Tweet getTweet(
+    @PathVariable(name = "id") Long id
+  ) throws BadRequestException {
+    return tweetService.getTweetById(id);
+  }
+
   @GetMapping("/timeline")
   public List<Tweet> getTimeline(
       @RequestParam Long userId
